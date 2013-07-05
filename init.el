@@ -19,6 +19,11 @@
 
 ;; Jedi settings
 (require 'jedi)
+;; It's also required to run "pip install --user jedi" and "pip
+;; install --user epc" to get the Python side of the library work
+;; correctly.
+;; With the same interpreter you're using.
+
 ;; if you need to change your python intepreter
 ;; (setq jedi:server-command
 ;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
@@ -60,3 +65,7 @@
  ac-override-local-map nil
  ac-use-menu-map t
  ac-candidate-limit 20)
+
+;; install show-keys.el if you want to see the keys directly
+
+(ido-mode t)
