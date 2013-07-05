@@ -25,6 +25,13 @@
 (require 'flymake)
 (require 'yasnippet)
 
+; auto-complete mode extra settings
+(setq
+ ac-auto-start 2
+ ac-override-local-map nil
+ ac-use-menu-map t
+ ac-candidate-limit 20)
+
 ;; Python mode settings
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (setq py-electric-colon-active t)
@@ -84,15 +91,12 @@
 (add-hook 'python-mode-hook 'flymake-activate)
 (add-hook 'python-mode-hook 'auto-complete-mode)
 
-(setq
- ac-auto-start 2
- ac-override-local-map nil
- ac-use-menu-map t
- ac-candidate-limit 20)
-
 ;; install show-keys.el if you want to see the keys directly
 
 (ido-mode t)
 
+;; -------------------- extra nice things --------------------
 ;; use shift to move around windows
 (windmove-default-keybindings 'shift)
+(show-paren-mode t)
+
