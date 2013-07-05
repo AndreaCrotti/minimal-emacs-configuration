@@ -48,7 +48,7 @@
 
 ;; if you need to change your python intepreter
 ;; (setq jedi:server-command
-;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
+;;       '("python2" (expand-file-name "~/elpa/jedi-0.1.2/jediepcserver.py")))
 
 (add-hook 'python-mode-hook
 	  (lambda ()
