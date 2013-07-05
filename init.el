@@ -49,9 +49,9 @@
 ;; correctly.
 ;; With the same interpreter you're using.
 
-;; if you need to change your python intepreter
-(setq jedi:server-command
-      '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
+;; if you need to change your python intepreter, if you want to change it
+;; (setq jedi:server-command
+;;       '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
 
 (add-hook 'python-mode-hook
 	  (lambda ()
