@@ -7,11 +7,15 @@
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
+(defun install-if-needed (package)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 ;; make more packages available with the package installer
 (setq to-install
       '(python-mode magit yasnippet jedi auto-complete autopair))
 
-(mapc 'package-install to-install)
+(mapc 'install-if-needed to-install)
 
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
