@@ -1,9 +1,4 @@
 ;; Requisites: Emacs >= 24
-
-;; make more packages available with the package installer
-(setq to-install
-      '("python-mode" "magit" "yasnippet" "jedi" "auto-complete" "autopair"))
-
 (when (locate-library "package")
   (require 'package)
   (package-initialize)
@@ -12,10 +7,11 @@
   (add-to-list 'package-archives
                '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
-;; install all of them automatically
-  ;; (dolist (x to-install)
-  ;;   (package-install (make-symbol x))))
+;; make more packages available with the package installer
+(setq to-install
+      '(python-mode magit yasnippet jedi auto-complete autopair))
 
+(mapc 'package-install to-install)
 
 (require 'magit)
 (global-set-key "\C-xg" 'magit-status)
