@@ -35,13 +35,14 @@
  ac-use-menu-map t
  ac-candidate-limit 20)
 
-;; Python mode settings
+;; ;; Python mode settings
+(require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (setq py-electric-colon-active t)
 (add-hook 'python-mode-hook 'autopair-mode)
 (add-hook 'python-mode-hook 'yas-minor-mode)
 
-;; Jedi settings
+;; ;; Jedi settings
 (require 'jedi)
 ;; It's also required to run "pip install --user jedi" and "pip
 ;; install --user epc" to get the Python side of the library work
@@ -49,13 +50,13 @@
 ;; With the same interpreter you're using.
 
 ;; if you need to change your python intepreter
-;; (setq jedi:server-command
-;;       '("python2" (expand-file-name "~/elpa/jedi-0.1.2/jediepcserver.py")))
+(setq jedi:server-command
+      '("python2" "/home/andrea/.emacs.d/elpa/jedi-0.1.2/jediepcserver.py"))
 
 (add-hook 'python-mode-hook
 	  (lambda ()
-	    ;; (jedi:setup)
-	    ;; (jedi:ac-setup)
+	    (jedi:setup)
+	    (jedi:ac-setup)
             (local-set-key "\C-cd" 'jedi:show-doc)
             (local-set-key (kbd "M-SPC") 'jedi:complete)
             (local-set-key (kbd "M-.") 'jedi:goto-definition)))
@@ -67,7 +68,7 @@
          (local-file (file-relative-name
                       temp-file
                       (file-name-directory buffer-file-name))))
-    (list "epylint2" (list local-file))))
+    (list "epylint" (list local-file))))
 
 (defun flymake-activate ()
   "Activates flymake when real buffer and you have write access"
@@ -93,8 +94,6 @@
 
 (add-hook 'python-mode-hook 'flymake-activate)
 (add-hook 'python-mode-hook 'auto-complete-mode)
-
-;; install show-keys.el if you want to see the keys directly
 
 (ido-mode t)
 
