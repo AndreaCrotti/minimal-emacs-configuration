@@ -14,7 +14,7 @@
 
 ;; make more packages available with the package installer
 (setq to-install
-      '(python-mode magit yasnippet jedi auto-complete autopair))
+      '(python-mode magit yasnippet jedi auto-complete autopair find-file-in-repository))
 
 (mapc 'install-if-needed to-install)
 
@@ -25,6 +25,8 @@
 (require 'autopair)
 (require 'flymake)
 (require 'yasnippet)
+
+(global-set-key [f7] 'find-file-in-repository)
 
 ; auto-complete mode extra settings
 (setq
