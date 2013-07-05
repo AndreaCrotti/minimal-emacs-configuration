@@ -1,6 +1,8 @@
+;; Requisites: Emacs >= 24
+
 ;; make more packages available with the package installer
 (setq to-install
-      '("python-mode" "magit" "yasnippet" "jedi" "auto-complete"))
+      '("python-mode" "magit" "yasnippet" "jedi" "auto-complete" "autopair"))
 
 (when (locate-library "package")
   (require 'package)
@@ -13,9 +15,18 @@
   ;;   (package-install (make-symbol x))))
 
 
+(require 'magit)
+(global-set-key "\C-xg" 'magit-status)
+
+(require 'auto-complete)
+(require 'autopair)
+(require 'flymake)
+(require 'yasnippet)
+
 ;; Python mode settings
 (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
 (setq py-electric-colon-active t)
+(add-hook 'python-mode-hook 'autopair-mode)
 
 ;; Jedi settings
 (require 'jedi)
@@ -37,7 +48,6 @@
             (local-set-key (kbd "M-.") 'jedi:goto-definition)))
 
 ;; Flymake settings for Python
-(require 'flymake)
 (defun flymake-python-init ()
   (let* ((temp-file (flymake-init-create-temp-buffer-copy
                      'flymake-create-temp-inplace))
@@ -69,15 +79,6 @@
              '("\\.py\\'" flymake-python-init))
 
 (add-hook 'python-mode-hook 'flymake-activate)
-
-(require 'magit)
-(global-set-key "\C-xg" 'magit-status)
-
-;; yasnippet configuration
-(require 'yasnippet)
-
-;; auto complete settings
-(require 'auto-complete)
 (add-hook 'python-mode-hook 'auto-complete-mode)
 
 (setq
