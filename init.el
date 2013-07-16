@@ -78,7 +78,7 @@
       (progn
         (flymake-mode t)
         ;; this is necessary since there is no flymake-mode-hook...
-        (local-set-key (kbd "C-c n") 'flymake-goto-prev-error)
+        (local-set-key (kbd "C-c n") 'flymake-goto-next-error)
         (local-set-key (kbd "C-c p") 'flymake-goto-prev-error))))
 
 (defun ca-flymake-show-help ()
