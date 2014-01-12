@@ -5,7 +5,6 @@ Minimal emacs configuration for Python.
 
 To get everything working correctly
 - pip install jedi epc pylint
-- make sure you have "epylint" in your path
 - clone this repository
 - start emacs as "emacs -Q"
 - visit the file "init.el" and M-x eval-buffer
