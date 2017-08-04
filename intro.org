@@ -1,0 +1,23 @@
+
+* Modes
+
+- 1 major
+- many minor
+
+* Lingo
+
+- buffer
+- window
+- frame
+- modeline
+- minibuffer
+
+* Demo
+
+- package management
+- *IELM*
+- elisp intro
+- github integration
+- python auto completion
+- kill ring
+- org-mode

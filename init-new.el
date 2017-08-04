@@ -19,6 +19,7 @@
         rainbow-mode
 	rainbow-delimiters
 	smartparens
+        showkey
         ;; git/github
 	magit
 	magithub
@@ -30,6 +31,8 @@
         dracula-theme))
 		 
 (mapc 'install-if-needed my-packages)
+
+;; (showkey-tooltip-mode t)
 
 (which-function-mode t)
 
