@@ -1,11 +1,6 @@
-
-* Modes
-
-- 1 major
-- many minor
-
 * Lingo
 
+- modes (minor / major)
 - buffer
 - window
 - frame
@@ -15,6 +10,7 @@
 * Demo
 
 - package management
+- inline documentation
 - *IELM*
 - elisp intro
 - github integration

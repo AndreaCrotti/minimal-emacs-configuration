@@ -74,6 +74,7 @@
             ;; (local-set-key "\C-cpm" 'pytest-pdb-module)
             ;; (local-set-key "\C-cp." 'pytest-pdb-one)
             ))
+
 (load-theme 'noctilux)
 
 (provide 'init-new)
