@@ -1,11 +1,24 @@
+* History
+
+- 1984 RMS at MIT
+- lisp: 1122147 (76.40%)
+- ansic: 314139 (21.39%)
+
 * Lingo
 
-- modes (minor / major)
 - buffer
 - window
 - frame
-- modeline
 - minibuffer
+- modes (minor / major)
+- modeline
+
+* Tour
+
+- calendar
+- modes for every language
+- org mode
+- tetris
 
 * Demo
 

@@ -23,57 +23,68 @@
         ;; git/github
 	magit
 	magithub
-        ;; python packages
+        ;; python related packages
         jedi
-
+	pytest
         ;; themes
         noctilux-theme
-        dracula-theme))
+        dracula-theme
+	yasnippet))
 		 
 (mapc 'install-if-needed my-packages)
 
-;; (showkey-tooltip-mode t)
+(showkey-log-mode t)
 
+;; show the function you are in
 (which-function-mode t)
 
+;; company is the completion backend
 (global-company-mode t)
+
+;; nicer parenthesis handling
 (smartparens-global-mode t)
+
+;; show the parens
 (show-paren-mode t)
+
+;; show column number
 (column-number-mode t)
+
+;; show line number
 (global-linum-mode t)
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook #'rainbow-mode)
 
+(yas-global-mode t)
+
 ;; python specific stuff
 (require 'company-jedi)
 
+;; various settings for Jedi
 (setq
  jedi:complete-on-dot t
  jedi:setup-keys t
  py-electric-colon-active t
  py-smart-indentation t)
 
+(venv-workon "emacs-demo")
+
 (add-hook 'python-mode-hook
           (lambda ()
             (add-to-list 'company-backends 'company-jedi)
             (hack-local-variables)
-            (jedi-setup-venv)
             (jedi:setup)
-            (jedi:ac-setup)
             (local-set-key "\C-cd" 'jedi:show-doc)
-            ;; (local-set-key (kbd "M-SPC") 'jedi:complete)
             (local-set-key (kbd "M-.") 'jedi:goto-definition)
             (local-set-key (kbd "M-D") 'ca-python-remove-pdb)
-            (local-set-key [f6] 'pytest-module)
-            ;; (local-set-key "\C-ca" 'pytest-all)
-            ;; (local-set-key "\C-cm" 'pytest-module)
-            ;; (local-set-key "\C-c." 'pytest-one)
-            ;; (local-set-key "\C-cd" 'pytest-directory)
-            ;; (local-set-key "\C-cpa" 'pytest-pdb-all)
-            ;; (local-set-key "\C-cpm" 'pytest-pdb-module)
-            ;; (local-set-key "\C-cp." 'pytest-pdb-one)
-            ))
+            (local-set-key [f6] 'pytest-module)))
+
+
+(load-library "magit")
+;; (load-library "magithub")
+;; (magithub-feature-autoinject t)
+(global-set-key "\C-xg" 'magit-status)
 
 (load-theme 'noctilux)
 
