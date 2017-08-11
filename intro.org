@@ -1,0 +1,32 @@
+* History
+
+- 1984 RMS at MIT
+- lisp: 1122147 (76.40%)
+- ansic: 314139 (21.39%)
+
+* Lingo
+
+- buffer
+- window
+- frame
+- minibuffer
+- modes (minor / major)
+- modeline
+
+* Tour
+
+- calendar
+- modes for every language
+- org mode
+- tetris
+
+* Demo
+
+- package management
+- inline documentation
+- *IELM*
+- elisp intro
+- github integration
+- python auto completion
+- kill ring
+- org-mode
